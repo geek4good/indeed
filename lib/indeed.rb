@@ -1,6 +1,4 @@
 require "indeed/version"
-
-module Indeed
-  class Error < StandardError; end
-  # Your code goes here...
-end
+require "indeed/page"
+require "indeed/job_page"
+require "indeed/search_page"
