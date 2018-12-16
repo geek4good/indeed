@@ -1,4 +1,5 @@
 require "open3"
+require "spec_helper"
 
 RSpec.describe Indeed do
   it "has a version number" do
@@ -8,7 +9,7 @@ RSpec.describe Indeed do
   describe "rake indeed:jobs" do
     it "outputs job listings in JSON format" do
       search_term = "sales"
-      output, status = Open3.capture2("rake indeed:jobs", :stdin_data => search_term )
+      output, status = Open3.capture2("rake indeed:jobs[#{search_term}]")
 
       expect(status.exitstatus).to eq(0)
       expect(output).to eq(<<~EOT)
