@@ -2,16 +2,11 @@ require "mechanize"
 
 module Indeed
   class Page
-    attr_reader :url
+    attr_reader :url, :page
 
     def initialize(url:)
       @url = url
-    end
-
-    private
-
-    def page
-      @page ||= Mechanize.new.get(url)
+      @page = Mechanize.new.get(url)
     end
   end
 end
